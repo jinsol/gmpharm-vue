@@ -6,10 +6,8 @@
           <img :src="image.img" :alt="image.alt">
         </div>
       </div>
-      <div class="controls">
         <button @click="prevSlide" class="prev"><i class="fa-solid fa-chevron-left"></i></button>
         <button @click="nextSlide" class="next"><i class="fa-solid fa-chevron-right"></i></button>
-      </div>
     </div>
     <div class="dots">
       <span v-for="(image, index) in images" :key="index" class="dot" :class="{ active: index === currentIndex }" @click="changeSlide(index)"></span>
@@ -58,71 +56,74 @@ export default {
 </script>
   
   <style  lang="scss" scoped>
-  .slide {
-    text-align: center;
-    position: relative;
-  }
+.slide {
+  text-align: center;
+  position: relative;
+
   .dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-}
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+  }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  background-color: #ddd;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 5px;
-  cursor: pointer;
-}
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+    cursor: pointer;
+  }
 
-.dot.active {
-  background-color: #333;
-}
+  .dot.active {
+    background-color: #333;
+  }
+
   .slideOuter {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    button {
+      position: absolute;
+      top: 40%;
+      color: #fff;
+      cursor: pointer;
+      font-size: 150px;
+      &:hover {
+        color: #555;
+      }
+      &.next {
+        right: 5%;
+        left:auto;
+      }
+      &.prev {
+        left: 5%;
+        right: auto;
+      }
+    }
   }
-  
+
   .slideInner {
     display: flex;
   }
-  
+
   .slide-item {
     display: none;
     justify-content: center;
     align-items: center;
   }
-  
+
   .slide-item.active {
     display: flex;
   }
-  
+
   img {
     max-width: 100%;
     max-height: 100%;
   }
-  
-  .controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-  }
-  
-  button {
-    padding: 10px 20px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 150px;
-  }
-  button:hover {
-    color: #555;
-  }
+    
+}
   </style>
