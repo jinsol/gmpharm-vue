@@ -44,7 +44,7 @@ export default new Vuex.Store({
       Vue.set(state.isAddedToCart, payload.id, true);
     },
     remove__Cart(state, payload) {
-      state.cartItem.splice(payload.index, 1);
+      state.cartItem.splice(payload, 1);
       Vue.set(state.isAddedToCart, payload.id, false);
     },
 

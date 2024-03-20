@@ -40,11 +40,16 @@
               <i
                 class="fa-heart"
                 :class="{
-                  'fa-regular': !$store.state.isAddedToCart[item.id],
+                  'fa-regular': $store.state.cartItem[item.id] == item.id,
                   'fa-solid': $store.state.isAddedToCart[item.id],
                 }"
               ></i>
               {{ $store.state.isAddedToCart[item.id] }}
+              <span
+                v-for="(item, index) in $store.state.cartItems"
+                :key="index"
+                >{{ item }}</span
+              >
             </button>
           </li>
           <li v-else>품절</li>
@@ -89,6 +94,10 @@ export default {
     addCart(item) {
       this.$store.commit("add__Cart", item);
     },
+  },
+  mounted() {
+    const cartItems = this.$store.state.cartItem;
+    console.log("Cart Items:", cartItems);
   },
 };
 </script>
