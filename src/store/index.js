@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     isMobile: false,
     is1400: false,
+    shoppingList: [],
     boardList: [],
     pregnancyList: [],
     cartItem: [],
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     setMobile(state, value) {
       state.isMobile = value;
+    },
+    set__ShoppingList(state, payload) {
+      state.shoppingList = payload;
     },
     set__BoardList(state, boardList) {
       state.boardList = boardList;
@@ -68,6 +72,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    init__Shopping({ commit }) {
+      axios.get("/assets/data/product_SP.json").then((response) => {
+        commit("set__ShoppingList", response.data);
+      });
+    },
     init__Board({ commit }) {
       axios.get("/assets/data/board.json").then((response) => {
         commit("set__BoardList", response.data);
@@ -99,6 +108,7 @@ export default new Vuex.Store({
     },
   },
   getters: {
+    fnGetShoppingList: (state) => state.shoppingList,
     fnGetBoardList: (state) => state.boardList,
     fnGetPregnancyList: (state) => state.pregnancyList,
     cartItemCount: (state) => state.cartItem.length,

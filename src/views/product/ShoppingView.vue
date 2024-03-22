@@ -1,19 +1,100 @@
 <template>
-  <div>쇼핑하기</div>
+  <main class="row">
+    <section-title
+      title="쇼핑하기"
+      sub_title="전문 약사가 설계한 믿고 먹는 프리미엄 브랜드, 지엠팜"
+    />
+    <product-type :productType="productType" @click="onClick_type" />
+    Filtered Product Target: {{ filteredProductTarget }}
+
+    <shopping-target
+      :productTarget="filteredProductTarget"
+      @click="onClick_target"
+    />
+    <!-- <product-list
+      :productList="filteredProducts"
+      :currentPage="currentPage"
+      :itemsPerPage="itemsPerPage"
+      :totalItems="filteredProducts.length"
+      :isMobile="isMobile"
+    />
+    <pagination
+      :totalItems="filteredProducts.length"
+      :currentPage.sync="currentPage"
+      :itemsPerPage="itemsPerPage"
+    /> -->
+  </main>
 </template>
 
 <script>
+import SectionTitle from "@/components/layout/SectionTitle.vue";
+import ProductType from "@/components/product/ProductType.vue";
+import ProductTarget from "@/components/product/ProductTarget.vue";
+import ShoppingTarget from "@/components/product/ShoppingTarget.vue";
+import { mapState } from "vuex";
+
 export default {
   name: "Shopping",
+  components: {
+    SectionTitle,
+    ProductType,
+    ProductTarget,
+    ShoppingTarget,
+  },
+  data() {
+    return {
+      productType: [
+        { name: "전체" },
+        { name: "성분별" },
+        { name: "기능별" },
+        { name: "지엠팜 세트상품" },
+      ],
+      productTarget: [
+        { name: "전체", target: ["전체"] },
+        {
+          name: "성분별",
+          target: ["전체", "아연", "칼슘", "마그네슘", "철분", "엽산"],
+        },
+        {
+          name: "기능별",
+          target: ["전체", "장건강", "눈건강", "뼈건강", "면역력"],
+        },
+        {
+          name: "지엠팜 세트상품",
+          target: ["전체", "생후 6개월 이상", "생후 24개월 이상", "성인"],
+        },
+      ],
+      selectedTarget: "전체",
+      selectedType: "전체",
+      currentPage: 1,
+      itemsPerPage: 10,
+    };
+  },
+  methods: {
+    onClick_target(target) {
+      this.selectedTarget = target;
+      this.currentPage = 1;
+    },
+    onClick_type(type) {
+      this.selectedType = type;
+      this.currentPage = 1;
+      console.log(type);
+    },
+  },
+  created() {
+    this.$store.dispatch("init__Shopping");
+  },
+  computed: {
+    dataShoppingList() {
+      return this.$store.getters.fnGetShoppingList;
+    },
+    filteredProductTarget() {
+      return this.productTarget.filter((item) => {
+        return item.name === this.selectedType;
+      });
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-div {
-  background: gray;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  display: block;
-}
-</style>
+<style lang="scss" scoped></style>
