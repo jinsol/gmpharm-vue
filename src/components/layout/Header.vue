@@ -250,6 +250,7 @@ header {
         li.depth1 {
           padding: 20px 0;
           position: relative;
+          line-height: 1.5;
 
           & > i {
             font-size: 12px;
