@@ -43,16 +43,37 @@
       </li>
       <li class="header_nav-row2">
         <ul v-if="isMobile" class="top_section">
-          <li>마이페이지 / 장바구니</li>
-          <li>
+          <li class="top_section-btn_section">
             <button class="mobile_x_btn" @click="closeNav">
               <i class="fa-solid fa-xmark"></i>
             </button>
           </li>
+          <li class="top_section-info_section">
+            <ul>
+              <li class="top_section-info_section-image">
+                <i class="fa-solid fa-user"></i>
+              </li>
+              <li class="top_section-info_section-content">
+                <a href=""
+                  >로그인을 진행해주세요 <i class="fa-solid fa-angle-right"></i
+                ></a>
+                <a href="">마이페이지</a>
+              </li>
+              <li>
+                <router-link to="/cart">장바구니</router-link>
+              </li>
+            </ul>
+          </li>
         </ul>
-        <ul>
+        <ul class="bottom_section">
           <li class="depth1">
-            <router-link to="/aboutus">지엠팜</router-link>
+            <router-link to="/aboutus">
+              <i
+                v-if="isMobile"
+                class="fa-regular fa-comment mobile_menuIcon"
+              ></i>
+              <span>지엠팜</span>
+            </router-link>
           </li>
           <li
             class="depth1"
@@ -60,7 +81,14 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">상품보기</a><i class="fa-solid fa-chevron-down"></i>
+            <a href="#">
+              <i
+                v-if="isMobile"
+                class="fa-solid fa-basket-shopping mobile_menuIcon"
+              ></i>
+              <span>상품보기</span>
+              <i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
+            </a>
             <ul class="depth2">
               <li>
                 <router-link to="/shopping">쇼핑하기</router-link>
@@ -74,7 +102,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">함께하는</a><i class="fa-solid fa-chevron-down"></i>
+            <a href="#">
+              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+              <span>함께하는</span>
+              <i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
+            </a>
             <ul class="depth2">
               <li><router-link to="/gmpharmcare">지엠팜케어</router-link></li>
               <li><router-link to="/pilldoc">필독상식</router-link></li>
@@ -87,7 +119,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">커뮤니티</a><i class="fa-solid fa-chevron-down"></i>
+            <a href="#">
+              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+              <span>커뮤니티</span
+              ><i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
+            </a>
             <ul class="depth2">
               <li><router-link to="/event">이벤트</router-link></li>
               <li><router-link to="/board">자유게시판</router-link></li>
@@ -103,7 +139,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">고객센터</a><i class="fa-solid fa-chevron-down"></i>
+            <a href="#">
+              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+              <span>고객센터</span>
+              <i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
+            </a>
             <ul class="depth2">
               <li><router-link to="/guideline">섭취가이드</router-link></li>
               <li><router-link to="/membership">맴버십 안내</router-link></li>
@@ -319,56 +359,146 @@ header {
       }
     }
   }
-  @media screen and (max-width: var(--mobile-width)) {
-    background-color: red;
-  }
 }
 
 header.mobile {
-  // position: fixed;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 5px var(--gray-color);
   .header_nav-row2 {
-    background-color: whitesmoke;
+    background-color: white;
     position: fixed;
     width: 95%;
     height: 100%;
     right: 0;
     top: 0;
     z-index: 999;
-
     opacity: 0;
     visibility: hidden;
-
     transform: translateX(100%);
     transition: all 0.5s ease-in-out;
     &.click {
+      // 모바일 메뉴가 열렸을 때
       transform: translateX(0);
-      box-shadow: -8px 0 20px 20px rgba(0, 0, 0, 0.5);
+      box-shadow: -8px 0 20px 20px rgba(0, 0, 0, 0.75);
       opacity: 1;
       visibility: visible;
     }
+
+    & > ul {
+      padding: 4%;
+      display: flex;
+      flex-direction: column;
+      & > li {
+        width: 100%;
+      }
+    }
     .top_section {
       background-color: var(--main-color);
-      height: 25%;
-      padding: 4%;
+      .top_section-btn_section {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .top_section-info_section {
+        ul {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          .top_section-info_section-image {
+            background-color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            i {
+              font-size: 45px;
+              color: var(--gray-color);
+            }
+          }
+          .top_section-info_section-content {
+            display: flex;
+            flex-direction: column;
+            padding: 0 2%;
+          }
+          li:last-child {
+            margin-left: auto;
+            display: flex;
+            align-content: center;
+          }
+        }
+      }
     }
-    ul {
-      flex-direction: column;
-      padding: 4%;
-      align-items: flex-start;
-      li.depth1 {
-        padding: 8px;
+    .bottom_section {
+      .depth1 {
+        padding: 0;
+        color: gray;
+        &:hover {
+          color: black;
+          transition: all 0.3s;
+        }
+        a {
+          padding: 8px;
+          display: flex;
+          transition: all 0.3s;
+          &:hover {
+            background: lightgray;
+          }
+          border-radius: 10px;
+          &:not(:first-child) {
+            justify-content: space-between;
+          }
+          .mobile_menuIcon {
+            width: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .mobile_arrowIcon {
+            width: 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+          }
+        }
+
         ul.depth2 {
           background-color: transparent;
           position: relative;
           visibility: hidden;
           display: none;
+          width: 100%;
+          flex-direction: column;
+          padding: 0;
+          &::after {
+            content: "";
+            display: block;
+            width: 1px;
+
+            height: 0%;
+            background-color: lightgray;
+            position: absolute;
+            left: 4.5%;
+          }
           li {
-            padding: 8px 12px;
+            width: 100%;
             line-height: 1em;
-            margin-bottom: 4px;
-            background-color: var(--main-color);
-            border-radius: 50px;
+            padding: 0;
+            margin-bottom: 0;
+            color: gray;
+
+            a {
+              width: auto;
+              margin-left: 8%;
+              display: block;
+              border-radius: 10px;
+              &:hover {
+                background: lightgray;
+                color: black;
+              }
+            }
             &:not(:last-child):after {
               display: none;
             }
@@ -378,6 +508,10 @@ header.mobile {
           ul.depth2 {
             visibility: visible;
             display: flex;
+          }
+          .depth2::after {
+            height: 100%;
+            transition: 0.5s ease 0.3s;
           }
         }
       }

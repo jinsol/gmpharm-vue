@@ -1,17 +1,18 @@
 <template>
   <div class="product__target row">
-    1:{{ productTarget }} <br /><br />
-    <!-- <ul>
-      <li v-for="(item, index) in filteredProductTarget" :key="index">
+    <ul>
+      <li v-for="(item, index) in productTarget" :key="index">
         <button
+          v-for="(target, index) in item.target"
+          :key="index"
           type="button"
-          @click="onClick(item.target)"
-          :class="{ active: onTarget == item.target }"
+          @click="onClick(target)"
+          :class="{ active: onTarget == target }"
         >
-          {{ item.target }}
+          {{ target }}
         </button>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </template>
 
@@ -23,7 +24,7 @@ export default {
       onTarget: "전체",
     };
   },
-  props: ["productType", "productTarget"],
+  props: ["productTarget"],
   methods: {
     onClick(target) {
       this.onTarget = target;

@@ -5,24 +5,21 @@
       sub_title="전문 약사가 설계한 믿고 먹는 프리미엄 브랜드, 지엠팜"
     />
     <product-type :productType="productType" @click="onClick_type" />
-    Filtered Product Target: {{ filteredProductTarget }}
-
     <shopping-target
       :productTarget="filteredProductTarget"
       @click="onClick_target"
     />
-    <!-- <product-list
+    <product-list
       :productList="filteredProducts"
       :currentPage="currentPage"
       :itemsPerPage="itemsPerPage"
       :totalItems="filteredProducts.length"
-      :isMobile="isMobile"
     />
     <pagination
       :totalItems="filteredProducts.length"
       :currentPage.sync="currentPage"
       :itemsPerPage="itemsPerPage"
-    /> -->
+    />
   </main>
 </template>
 
@@ -31,6 +28,8 @@ import SectionTitle from "@/components/layout/SectionTitle.vue";
 import ProductType from "@/components/product/ProductType.vue";
 import ProductTarget from "@/components/product/ProductTarget.vue";
 import ShoppingTarget from "@/components/product/ShoppingTarget.vue";
+import ProductList from "@/components/product/ProductList.vue";
+import Pagination from "@/components/layout/Pagination.vue";
 import { mapState } from "vuex";
 
 export default {
@@ -40,6 +39,8 @@ export default {
     ProductType,
     ProductTarget,
     ShoppingTarget,
+    ProductList,
+    Pagination,
   },
   data() {
     return {
@@ -72,13 +73,17 @@ export default {
   },
   methods: {
     onClick_target(target) {
+      console.log("타겟 누름");
       this.selectedTarget = target;
       this.currentPage = 1;
     },
     onClick_type(type) {
+      console.log("타입을 눌렀어요");
       this.selectedType = type;
+      if (type !== "전체") {
+        this.selectedTarget = "전체";
+      }
       this.currentPage = 1;
-      console.log(type);
     },
   },
   created() {
@@ -91,6 +96,22 @@ export default {
     filteredProductTarget() {
       return this.productTarget.filter((item) => {
         return item.name === this.selectedType;
+      });
+    },
+    filteredProducts() {
+      return this.dataShoppingList.filter((product) => {
+        const targetMatch =
+          this.selectedTarget === "전체" ||
+          product.productTarget.includes(this.selectedTarget.trim());
+
+        let typeMatch = false;
+        if (this.selectedType === "전체") {
+          typeMatch = true;
+        } else {
+          typeMatch = product.type === this.selectedType;
+        }
+
+        return targetMatch && typeMatch;
       });
     },
   },
