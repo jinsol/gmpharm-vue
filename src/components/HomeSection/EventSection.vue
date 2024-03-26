@@ -1,9 +1,9 @@
 <template>
-        <div class="event row">
-            <div>
+        <div class="row">
+            <div class="event ">
                 <img src="/image/4.png" alt="banner">
             </div>
-            <div class="slideInner">
+            <div id="eventSlide" class="slideInner">
                 <swiper class="slide" :options="eventSlide">
                    <swiper-slide v-for="(item, index) in images" :key="index">
                            <img :src="item.img" :alt="item.alt">

@@ -1,5 +1,5 @@
 <template>
-    <div class="slideInner">
+    <div id="slideSection2" class="slideInner">
         <Swiper  class="swiper" :options="swiperOptions">
             <swiper-slide v-for="(item,index) in images" :key="index" >
                 <img :src="item.img" :alt="item.alt">
@@ -31,7 +31,7 @@ import '@/assets/css/myswiper.css'
                     spaceBetween:0, //1장일때는 0 
                     effect:"slide",
                     autoplay:{
-                        delay:1000
+                        delay:3000
                     },
                     loop:true, 
                     navigation:{

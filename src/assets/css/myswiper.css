@@ -22,6 +22,16 @@
   :root :hover{
     color: #5e5c5c;
   }
+  #eventSlide   .swiper-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    /* Fix of Webkit flickering */
+    z-index: 1;
+  }
   .swiper-container {
     margin-left: auto;
     margin-right: auto;
@@ -32,8 +42,15 @@
     /* Fix of Webkit flickering */
     z-index: 1;
   }
-  .swiper-container-vertical > .swiper-wrapper {
-    flex-direction: column;
+  #eventSlide .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    transition-property: transform;
+    box-sizing: content-box;
   }
   .swiper-wrapper {
     position: relative;
