@@ -35,8 +35,10 @@ export default {
   ul {
     display: flex;
     justify-content: space-between;
+    background-color: var(--gray-color);
+    border-radius: 50px;
     li {
-      flex-basis: 50%;
+      // flex-basis: 50%;
       text-align: center;
       padding: 2% 0;
 
@@ -44,7 +46,10 @@ export default {
         background: rgba(255, 255, 255, 0.1);
       }
       &.active {
-        background: red;
+        background-color: white;
+        color: var(--main-color);
+        margin: 1%;
+        border-radius: 50px;
       }
     }
   }
