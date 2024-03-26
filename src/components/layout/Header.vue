@@ -4,7 +4,7 @@
       <li class="header_nav-row1">
         <ul>
           <li class="search_section">
-            <button @click="search_on">
+            <button>
               <input type="search" class="search_box" placeholder="검색하기" />
               <i class="fa-solid fa-magnifying-glass search_icon"></i>
             </button>
@@ -67,7 +67,7 @@
         </ul>
         <ul class="bottom_section">
           <li class="depth1">
-            <router-link to="/aboutus">
+            <router-link to="/aboutus" class="depth1_menu">
               <i
                 v-if="isMobile"
                 class="fa-regular fa-comment mobile_menuIcon"
@@ -81,7 +81,7 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">
+            <a href="#" class="depth1_menu">
               <i
                 v-if="isMobile"
                 class="fa-solid fa-basket-shopping mobile_menuIcon"
@@ -102,8 +102,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">
-              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+            <a href="#" class="depth1_menu">
+              <i
+                v-if="isMobile"
+                class="fa-solid fa-user-group mobile_menuIcon"
+              ></i>
               <span>함께하는</span>
               <i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
             </a>
@@ -119,8 +122,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">
-              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+            <a href="#" class="depth1_menu">
+              <i
+                v-if="isMobile"
+                class="fa-regular fa-face-smile mobile_menuIcon"
+              ></i>
               <span>커뮤니티</span
               ><i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
             </a>
@@ -139,8 +145,11 @@
             @mouseenter="header_menu_enter"
             @mouseleave="header_menu_leave"
           >
-            <a href="#">
-              <i v-if="isMobile" class="fa-solid fa-user-group"></i>
+            <a href="#" class="depth1_menu">
+              <i
+                v-if="isMobile"
+                class="fa-solid fa-headset mobile_menuIcon"
+              ></i>
               <span>고객센터</span>
               <i class="fa-solid fa-chevron-down mobile_arrowIcon"></i>
             </a>
@@ -149,8 +158,8 @@
               <li><router-link to="/membership">맴버십 안내</router-link></li>
               <li><router-link to="/questions">자주묻는질문</router-link></li>
               <li><router-link to="/inquiry">1:1 문의</router-link></li>
-              <li><router-link to="/contact">기업제휴문의</router-link></li>
-              <li><router-link to="/notice">공지사항</router-link></li>
+              <li><router-link to="/alliance">기업제휴문의</router-link></li>
+              <li><router-link to="/guideline">공지사항</router-link></li>
             </ul>
           </li>
         </ul>
@@ -184,9 +193,6 @@ export default {
     header_menu_click(event) {
       event.currentTarget.classList.toggle("active");
     },
-    search_on() {
-      this.$el.querySelector(".search_section").classList.add("active");
-    },
   },
   computed: {
     cartsCount() {
@@ -211,35 +217,55 @@ header {
   padding: 0 2%;
   position: relative;
   z-index: 9999;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-  button {
-    padding: 8px;
-  }
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
   .header_nav {
     margin: 0 auto;
+    & > li > ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .header_nav-row1 {
       ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         li {
           width: 30%;
           padding: 20px 0;
-          .search_box {
-            width: 0;
-            border: 1px solid transparent;
-            opacity: 0;
-            border-radius: 50px;
-            transition: 0.5s;
-          }
-          &.search_section.active {
-            .search_box {
-              width: 90%;
-              opacity: 1;
-              border: 1px solid gray;
-            }
-            .search_icon {
-              width: 10%;
+          &.search_section {
+            button {
+              display: flex;
+              align-items: center;
+              position: relative;
+              cursor: text;
+              margin-left: -15px;
+              .search_box {
+                all: unset;
+                background: whitesmoke;
+                border-radius: 50px;
+                transition: 0.5s;
+                width: 100%;
+                padding: 10px 15px;
+                opacity: 1;
+                text-align: left;
+              }
+              input::-ms-clear,
+              input::-ms-reveal {
+                display: none;
+                width: 0;
+                height: 0;
+              }
+              input::-webkit-search-decoration,
+              input::-webkit-search-cancel-button,
+              input::-webkit-search-results-button,
+              input::-webkit-search-results-decoration {
+                display: none;
+              }
+              .search_icon {
+                width: 10%;
+                position: absolute;
+                right: 15px;
+                cursor: pointer;
+                color: gray;
+              }
             }
           }
           &.logo_section {
@@ -253,22 +279,28 @@ header {
           &.myPage_section {
             display: flex;
             justify-content: end;
-            .goToCart_BT.fa-solid {
-              color: var(--main-color);
-              position: relative;
-              span {
-                position: absolute;
-                inset: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 6px;
-                color: white;
+            div {
+              display: flex;
+              gap: 12px;
+              button {
+                i {
+                  font-size: 18px;
+                  color: gray;
+                }
+                .goToCart_BT.fa-solid {
+                  color: var(--main-color);
+                  position: relative;
+                  span {
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 6px;
+                    color: white;
+                  }
+                }
               }
-            }
-            .bars_icon {
-              // z-index: 9999;
-              // position: relative;
             }
           }
         }
@@ -284,40 +316,33 @@ header {
     }
     .header_nav-row2 {
       ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         li.depth1 {
           padding: 20px 0;
           position: relative;
           line-height: 1.5;
-
-          & > i {
-            font-size: 12px;
-            margin-left: 8px;
-            color: lightslategrey;
-            transition: all 0.3s ease-in-out;
+          .depth1_menu {
+            .mobile_arrowIcon {
+              font-size: 12px;
+              margin-left: 8px;
+              color: lightslategrey;
+              transition: all 0.3s ease-in-out;
+            }
           }
           ul.depth2 {
             visibility: hidden;
             opacity: 0;
             display: none;
             justify-content: center;
-
             position: absolute;
             background-color: var(--main-color);
-
             color: white;
-
             width: max-content;
             padding: 4px 8px;
             border-radius: 50px;
             top: 80%;
-
             left: calc(50% - 6px);
             transform: translateX(-50%);
             transition: opacity 0.3s ease, visibility 0.3s ease;
-
             li {
               display: inline-block;
               padding: 8px;
@@ -332,7 +357,7 @@ header {
                 width: 5px;
                 height: 5px;
                 background-color: white;
-                top: 50%;
+
                 left: 18.5px;
                 transform: translateY(-50%);
                 position: relative;
@@ -344,16 +369,18 @@ header {
             left: unset;
             transform: unset;
           }
-          &.active {
-            & > i {
+        }
+        li.depth1.active {
+          .depth1_menu {
+            .mobile_arrowIcon {
               transform: rotate(180deg) translateY(1.5px);
             }
-            ul.depth2 {
-              visibility: visible;
-              opacity: 1;
-              display: flex;
-              transition: opacity 0.3s ease, visibility 0.3s ease;
-            }
+          }
+          ul.depth2 {
+            visibility: visible;
+            opacity: 1;
+            display: flex;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
           }
         }
       }
@@ -363,155 +390,157 @@ header {
 
 header.mobile {
   box-shadow: 5px 5px 5px var(--gray-color);
-  .header_nav-row2 {
-    background-color: white;
-    position: fixed;
-    width: 95%;
-    height: 100%;
-    right: 0;
-    top: 0;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(100%);
-    transition: all 0.5s ease-in-out;
-    &.click {
-      // 모바일 메뉴가 열렸을 때
-      transform: translateX(0);
-      box-shadow: -8px 0 20px 20px rgba(0, 0, 0, 0.75);
-      opacity: 1;
-      visibility: visible;
-    }
-
-    & > ul {
-      padding: 4%;
-      display: flex;
-      flex-direction: column;
-      & > li {
-        width: 100%;
+  .header_nav {
+    .header_nav-row2 {
+      background-color: white;
+      position: fixed;
+      width: 95%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(100%);
+      transition: all 0.5s ease-in-out;
+      &.click {
+        // 모바일 메뉴가 열렸을 때
+        transform: translateX(0);
+        box-shadow: -8px 0 20px 20px rgba(0, 0, 0, 0.75);
+        opacity: 1;
+        visibility: visible;
       }
-    }
-    .top_section {
-      background-color: var(--main-color);
-      .top_section-btn_section {
+      & > ul {
+        padding: 4%;
         display: flex;
-        justify-content: flex-end;
-      }
-      .top_section-info_section {
-        ul {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-          .top_section-info_section-image {
-            background-color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            overflow: hidden;
-            i {
-              font-size: 45px;
-              color: var(--gray-color);
-            }
-          }
-          .top_section-info_section-content {
-            display: flex;
-            flex-direction: column;
-            padding: 0 2%;
-          }
-          li:last-child {
-            margin-left: auto;
-            display: flex;
-            align-content: center;
-          }
-        }
-      }
-    }
-    .bottom_section {
-      .depth1 {
-        padding: 0;
-        color: gray;
-        &:hover {
-          color: black;
-          transition: all 0.3s;
-        }
-        a {
-          padding: 8px;
-          display: flex;
-          transition: all 0.3s;
-          &:hover {
-            background: lightgray;
-          }
-          border-radius: 10px;
-          &:not(:first-child) {
-            justify-content: space-between;
-          }
-          .mobile_menuIcon {
-            width: 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-          .mobile_arrowIcon {
-            width: 5%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: auto;
-          }
-        }
-
-        ul.depth2 {
-          background-color: transparent;
-          position: relative;
-          visibility: hidden;
-          display: none;
+        flex-direction: column;
+        & > li {
           width: 100%;
-          flex-direction: column;
-          padding: 0;
-          &::after {
-            content: "";
-            display: block;
-            width: 1px;
-
-            height: 0%;
-            background-color: lightgray;
-            position: absolute;
-            left: 4.5%;
-          }
-          li {
-            width: 100%;
-            line-height: 1em;
-            padding: 0;
-            margin-bottom: 0;
-            color: gray;
-
-            a {
-              width: auto;
-              margin-left: 8%;
-              display: block;
-              border-radius: 10px;
-              &:hover {
-                background: lightgray;
-                color: black;
+        }
+      }
+      .top_section {
+        background-color: var(--main-color);
+        color: white;
+        .top_section-btn_section {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .top_section-info_section {
+          ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .top_section-info_section-image {
+              background-color: white;
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              overflow: hidden;
+              i {
+                font-size: 45px;
+                color: var(--gray-color);
               }
             }
-            &:not(:last-child):after {
-              display: none;
+            .top_section-info_section-content {
+              display: flex;
+              flex-direction: column;
+              padding: 0 2%;
+            }
+            li:last-child {
+              margin-left: auto;
+              display: flex;
+              align-content: center;
             }
           }
         }
-        &.active {
-          ul.depth2 {
-            visibility: visible;
-            display: flex;
+      }
+      .bottom_section {
+        .depth1 {
+          padding: 0;
+          color: gray;
+          &:hover {
+            color: black;
+            transition: all 0.3s;
           }
-          .depth2::after {
-            height: 100%;
-            transition: 0.5s ease 0.3s;
+          a {
+            padding: 8px;
+            display: flex;
+            transition: all 0.3s;
+            &:hover {
+              background: lightgray;
+            }
+            border-radius: 10px;
+            &:not(:first-child) {
+              justify-content: space-between;
+            }
+            .mobile_menuIcon {
+              width: 5%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .mobile_arrowIcon {
+              width: 5%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-left: auto;
+            }
+          }
+
+          ul.depth2 {
+            background-color: transparent;
+            position: relative;
+            visibility: hidden;
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            padding: 0;
+            &::after {
+              content: "";
+              display: block;
+              width: 1px;
+
+              height: 0%;
+              background-color: lightgray;
+              position: absolute;
+              left: 4.5%;
+            }
+            li {
+              width: 100%;
+              line-height: 1em;
+              padding: 0;
+              margin-bottom: 0;
+              color: gray;
+
+              a {
+                width: auto;
+                margin-left: 8%;
+                display: block;
+                border-radius: 10px;
+                &:hover {
+                  background: lightgray;
+                  color: black;
+                }
+              }
+              &:not(:last-child):after {
+                display: none;
+              }
+            }
+          }
+          &.active {
+            ul.depth2 {
+              visibility: visible;
+              display: flex;
+            }
+            .depth2::after {
+              height: 100%;
+              transition: 0.5s ease 0.3s;
+            }
           }
         }
       }
