@@ -25,6 +25,7 @@ import GoLinkSection from "@/components/HomeSection/GoLinkSection.vue"
 export default {
   name: "HomeView",
   components: {
+    TestSection,
     EventSection,
     BestProductSection,
     SlideSection2,
@@ -32,7 +33,7 @@ export default {
     NewPrdSection,
     instargramSection,
     GoLinkSection,
-    TestSection,
+
 
 
   },
