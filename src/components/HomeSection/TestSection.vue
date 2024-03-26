@@ -55,7 +55,6 @@ import '@/assets/css/myswiper.css'
             }
         }
     }
-    
 </script>
 
 <style lang="scss" scoped>
