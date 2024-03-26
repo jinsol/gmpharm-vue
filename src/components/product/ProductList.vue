@@ -37,8 +37,19 @@
           <li v-if="item.stock">
             {{ item.price }}원
             <button @click="addCart(item)">
+<<<<<<< HEAD
               <i v-if="heartFilled[index]" class="fa-heart fa-solid"></i>
               <i v-else class="fa-heart fa-regular"></i>
+=======
+              <i
+                class="fa-heart"
+                :class="{
+                  'fa-regular': !$store.state.isAddedToCart[item.id],
+                  'fa-solid': $store.state.isAddedToCart[item.id],
+                }"
+              ></i>
+              {{ $store.state.isAddedToCart[item.id] }}
+>>>>>>> origin/main
             </button>
           </li>
           <li v-else>품절</li>
@@ -62,7 +73,10 @@ export default {
       redGinseng: "어린이홍삼",
       immunity: "유소아면역",
       growth: "유소아성장",
+<<<<<<< HEAD
       heartFilled: [], // 배열 추가
+=======
+>>>>>>> origin/main
     };
   },
   props: {
@@ -75,15 +89,22 @@ export default {
     displayedProducts() {
       const startIndex = (this.currentPage - 1) * this.itemsPerPage;
       const endIndex = startIndex + this.itemsPerPage;
+<<<<<<< HEAD
       this.calculateHeartFilled(startIndex, endIndex); // 하트 상태 계산
       return this.productList.slice(startIndex, endIndex);
     },
+=======
+      return this.productList.slice(startIndex, endIndex);
+    },
+
+>>>>>>> origin/main
     ...mapState(["isMobile"]),
   },
   methods: {
     addCart(item) {
       this.$store.commit("add__Cart", item);
     },
+<<<<<<< HEAD
     calculateHeartFilled(startIndex, endIndex) {
       this.heartFilled = []; // 배열 초기화
       for (let i = startIndex; i < endIndex; i++) {
@@ -93,6 +114,8 @@ export default {
         this.heartFilled.push(!!cartItem); // 해당 상품에 대한 카트 아이템이 있는지 확인하여 하트 상태 결정
       }
     },
+=======
+>>>>>>> origin/main
   },
 };
 </script>

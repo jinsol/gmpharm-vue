@@ -4,28 +4,49 @@
         <div>
             <div class="event">
                 <div class="bestMain">
+<<<<<<< HEAD
                     <router-link to="/membership">
+=======
+                    <div class="num"> 
+                        <span>Best<br>01</span>
+                    </div>
+                    <router-link to="/membership" class="photo">
+>>>>>>> origin/main
                         <img src="/image/RDV_m1_p14.png" alt="">
                     </router-link>
                     <div class="detail">
                         <div class="infoBox_1">
                             <div><img src="/image/custom_2716877566803974.png" alt=""></div>
                             <div><img src="/image/custom_1116487034051360.png" alt=""></div>
+<<<<<<< HEAD
                             <p>
                                 [지엠팜더칼슘디]/1개월분 (유소아 / 어린이 칼슘) 칼슘 마그네슘
                             </p>
+=======
+                            <p><strong>
+                                [지엠팜더칼슘디]/1개월분 (유소아 / 어린이 칼슘) 칼슘 마그네슘
+                            </strong></p>
+>>>>>>> origin/main
                         </div>
                        <div class="infoBox_2">
                             <p>
                                 25,000원
                             </p>
+<<<<<<< HEAD
                             <div v-for="(item,index) in images" :key="index">
                                 <img :src="item.img" :alt="item.alt">
+=======
+                            <div class="cart">
+                                <router-link to="/popup" v-for="(item,index) in images" :key="index" class="payBtn" @click="openNewTab">
+                                    <img :src="item.img" :alt="item.alt">
+                                </router-link>
+>>>>>>> origin/main
                             </div>
                        </div>
                     </div>
                 </div>
                 <div class="best">
+<<<<<<< HEAD
                     <div class="product">
                         <router-link to="/membership">
                             <img src="/image/RDV_m1_p14.png" alt="">
@@ -45,6 +66,47 @@
                         <router-link to="/membership">
                             <img src="/image/RDV_m1_p03.png" alt="">
                         </router-link>
+=======
+                    <div class="product_1">
+                        <div class="box">
+                            <div class="num_1"> 
+                            <span>Best<br>01</span>
+                            </div>
+                            <router-link to="/membership">
+                                <img src="/image/RDV_m1_p14.png" alt="">
+                            </router-link>
+                        </div>
+                    </div>
+                    <div class="product">
+                      <div class="box_2">
+                            <div class="num_2"> 
+                            <span>Best<br>02</span>
+                            </div>
+                            <router-link to="/membership">
+                                <img src="/image/RDV_m1_p12.png" alt="">
+                            </router-link>
+                      </div>
+                    </div>
+                    <div  class="product">
+                        <div class="box_2">
+                            <div class="num_2"> 
+                            <span>Best<br>03</span>
+                            </div>
+                            <router-link to="/membership">
+                                <img src="/image/RDV_m1_p09.png" alt="">
+                            </router-link>
+                        </div>
+                    </div>
+                  <div class="product">
+                    <div class="box_2">
+                        <div class="num_2"> 
+                            <span>Best<br>04</span>
+                            </div>
+                            <router-link to="/membership">
+                                <img src="/image/RDV_m1_p03.png" alt="">
+                            </router-link>
+                    </div>
+>>>>>>> origin/main
                   </div>
                 </div>
             </div>
@@ -61,9 +123,20 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
     data(){
         return{
             images:[
+<<<<<<< HEAD
                 {img:'./image/prd_list_cart.png', imgBF : './image/prd_list_cart.png', imgAF:'prd_list_cart_h.png', alt:'장바구니'}
             ]
         }
+=======
+                {img:'./image/prd_list_cart.png', imgBF : './image/prd_list_cart.png', imgAF:'./image/prd_list_cart_h.png', alt:'장바구니'}
+            ]
+        }
+    },
+    methods:{
+        openNewTab(){
+            window.open('/popup', '_blank', 'width=480,height=720')
+        }
+>>>>>>> origin/main
     }
     }
 </script>
@@ -71,43 +144,177 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
 <style lang="scss" scoped>
     .event{
         display: flex;
+<<<<<<< HEAD
         justify-content: center;
         .bestMain{
             background: #eff5f8;
             flex: 0 0 45%;
+=======
+        .bestMain{
+            background: #eff5f8;
+            flex: 0 0 44%;
+>>>>>>> origin/main
             border: 1px solid #eff5f8;
             border-radius: 15px;
             text-align: center;
             padding: 30px;
+<<<<<<< HEAD
             img{
                 padding: 30px;
             }
+=======
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+>>>>>>> origin/main
             .detail{
                 border: 1px solid #fff;
                 background: #fff;
                 border-radius: 15px;
+<<<<<<< HEAD
                 padding: 30px;
+=======
+                padding: 20px;
+>>>>>>> origin/main
                 .infoBox_1{
                     display: flex;
                     flex-wrap: wrap;
                     align-items: flex-end;
+<<<<<<< HEAD
+=======
+                    font-size: 18px;
+>>>>>>> origin/main
                 }
                 .infoBox_2{
                     display: flex;
                     justify-content: space-between;
+<<<<<<< HEAD
                     align-items: flex-end
                 }
             }
+=======
+                    align-items: flex-end;
+                    font-size: 18px;
+                }
+            }
+            .num{
+                background: linear-gradient(45deg,#61b7b5,#64a8d4);
+                border-radius: 50px;
+                width: 80px;
+                height: 80px;
+                color:#fff;
+                border-bottom-right-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                position: absolute;
+            }
+            .photo{
+                display: block;
+                margin: auto;
+                padding: auto;
+                transition: all 0.5s;
+                &:hover{
+                    scale: (1.1);
+                }
+            }
+            .cart{
+                width: 50px;
+                height: 50px;
+            .payBtn{
+                &:hover{
+                    content: url('./image/prd_list_cart_h.png');
+                }
+            }
+        }
+>>>>>>> origin/main
         }
         .best{
             display: flex;
             flex-wrap: wrap;
+<<<<<<< HEAD
+=======
+            justify-content: space-between;
+           
+            .product_1{
+                border:10px solid #f7f7f7;
+                background: #ffff;
+                border-radius: 15px;
+                margin: 10px;
+                padding: 20px;
+                .box{
+                    position: relative;
+                .num_1{
+                background: #88c3e5;
+                border-radius: 50px;
+                width: 60px;
+                height: 60px;
+                color:#fff;
+                border-bottom-right-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                position: absolute;
+                text-align: center;
+            }
+            img{
+                width: 80%;
+                display: block;
+                margin: auto;
+                padding: auto;
+                transition: all 0.5s;
+                &:hover{
+                    scale: (1.1);
+                }
+            }
+        }
+            }
+>>>>>>> origin/main
             .product{
                 border:1px solid #f7f7f7;
                 background: #f7f7f7;
                 border-radius: 15px;
                 margin: 10px;
+<<<<<<< HEAD
             }
         }
+=======
+                padding: 20px;
+                border:10px solid #f7f7f7;
+                .box_2{
+                    position: relative;
+                .num_2{
+                background: #747474;
+                border-radius: 50px;
+                width: 60px;
+                height: 60px;
+                color:#fff;
+                border-bottom-right-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                position: absolute;
+                text-align: center;
+            }
+            img{
+                width: 80%;
+                display: block;
+                margin: auto;
+                padding: auto;
+                transition: all 0.5s;
+                &:hover{
+                    scale: (1.1);
+                }
+            }
+            }
+            }
+        }
+        
+>>>>>>> origin/main
     }
 </style>

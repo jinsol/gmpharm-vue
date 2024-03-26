@@ -9,7 +9,11 @@
                         <h3>신규 회원 혜택</h3>
                         <p>지엠팜 가족을 위한 적립금 혜택</p>
                         <div class="box_b">
+<<<<<<< HEAD
                             <p>Benefit <sapn class="circle">01</sapn></p>
+=======
+                            <p>Benefit <span class="circle">01</span></p>
+>>>>>>> origin/main
                             <div class="member">
                                 <a href="https://thegmpharm.co.kr/member/join.html">
                                     <img src="/image/newmem01.png" alt="">
@@ -21,7 +25,11 @@
                             </div>
                         </div>
                         <div class="box_b">
+<<<<<<< HEAD
                             <p>Benefit <sapn class="circle">02</sapn></p>
+=======
+                            <p>Benefit <span class="circle">02</span></p>
+>>>>>>> origin/main
                             <div class="member">
                                 <a href="https://pf.kakao.com/_AvxbqV">
                                     <img src="/image/newmem02.png" alt="">
@@ -33,7 +41,11 @@
                             </div>
                         </div>
                         <div class="box_b">
+<<<<<<< HEAD
                             <p>Benefit <sapn class="circle">03</sapn></p>
+=======
+                            <p>Benefit <span class="circle">03</span></p>
+>>>>>>> origin/main
                             <div class="member">
                                 <a href="#">
                                     <img src="/image/newmem03.png" alt="">

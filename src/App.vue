@@ -7,11 +7,18 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import Header from "./components/layout/Header.vue";
 import Footer from "./components/layout/Footer.vue";
 import store from "./store";
 export default {
   name: "App",
+=======
+import Header from "@/components/layout/Header.vue";
+import Footer from "@/components/layout/Footer.vue";
+import store from "@/store";
+export default {
+>>>>>>> origin/main
   components: {
     Header,
     Footer,
@@ -32,7 +39,11 @@ export default {
       store.commit("setMobile", isMobile);
     },
   },
+<<<<<<< HEAD
 };
+=======
+}
+>>>>>>> origin/main
 </script>
 
 <style lang="scss" scoped></style>

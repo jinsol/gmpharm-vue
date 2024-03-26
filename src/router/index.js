@@ -43,6 +43,10 @@ import InformationView from "@/views/InformationView.vue";
 import AllianceView from "@/views/AllianceView.vue";
 // 마이페이지 (cart 등)
 import CartView from "@/views/mypage/CartView.vue";
+<<<<<<< HEAD
+=======
+import PopUpView from "@/views/Pop/PopUpView.vue" 
+>>>>>>> origin/main
 
 Vue.use(Router);
 
@@ -115,11 +119,14 @@ export default new Router({
       component: PharmacistView,
     },
     {
+<<<<<<< HEAD
       path: "/guideline",
       name: "guideline",
       component: GuidelineView,
     },
     {
+=======
+>>>>>>> origin/main
       path: "/membership",
       name: "membership",
       component: MembershipView,
@@ -158,6 +165,10 @@ export default new Router({
     { path: "/noticepost7", name: "noticepost7", component: NoticePostView7 },
     { path: "/noticepost8", name: "noticepost8", component: NoticePostView8 },
     { path: "/noticepost9", name: "noticepost9", component: NoticePostView9 },
+<<<<<<< HEAD
+=======
+    { path: "/popup", name: "popup", component:PopUpView },
+>>>>>>> origin/main
     {
       path: "/noticepost10",
       name: "noticepost10",

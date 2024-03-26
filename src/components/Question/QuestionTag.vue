@@ -9,7 +9,10 @@
   <span>{{ item.name }}</span>
   </button>
   </div>
+<<<<<<< HEAD
   
+=======
+>>>>>>> origin/main
   <div class="selectBox" >
       <div v-if="questionTagValue === '회원·정보'" >
   <div class="faq_list">
@@ -114,6 +117,10 @@
             questionButton:'회원·정보',
             activeButton:'회원·정보',
             activeImg:'./image/faq_icon01_h.png',
+<<<<<<< HEAD
+=======
+            currentIndex: 0,
+>>>>>>> origin/main
               questionTagValue:'', // 클릭된 질문 버튼을 저장할 데이터 속성
               questionTag:[
                   {name: '회원·정보', image: './image/faq_icon01.png',image1: './image/faq_icon01.png', image2: './image/faq_icon01_h.png' },

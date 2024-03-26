@@ -9,7 +9,10 @@ export default new Vuex.Store({
   state: {
     isMobile: false,
     is1400: false,
+<<<<<<< HEAD
     shoppingList: [],
+=======
+>>>>>>> origin/main
     boardList: [],
     pregnancyList: [],
     cartItem: [],
@@ -22,9 +25,12 @@ export default new Vuex.Store({
     setMobile(state, value) {
       state.isMobile = value;
     },
+<<<<<<< HEAD
     set__ShoppingList(state, payload) {
       state.shoppingList = payload;
     },
+=======
+>>>>>>> origin/main
     set__BoardList(state, boardList) {
       state.boardList = boardList;
     },
@@ -48,7 +54,11 @@ export default new Vuex.Store({
       Vue.set(state.isAddedToCart, payload.id, true);
     },
     remove__Cart(state, payload) {
+<<<<<<< HEAD
       state.cartItem.splice(payload, 1);
+=======
+      state.cartItem.splice(payload.index, 1);
+>>>>>>> origin/main
       Vue.set(state.isAddedToCart, payload.id, false);
     },
 
@@ -72,11 +82,14 @@ export default new Vuex.Store({
     },
   },
   actions: {
+<<<<<<< HEAD
     init__Shopping({ commit }) {
       axios.get("/assets/data/product_SP.json").then((response) => {
         commit("set__ShoppingList", response.data);
       });
     },
+=======
+>>>>>>> origin/main
     init__Board({ commit }) {
       axios.get("/assets/data/board.json").then((response) => {
         commit("set__BoardList", response.data);
@@ -108,7 +121,10 @@ export default new Vuex.Store({
     },
   },
   getters: {
+<<<<<<< HEAD
     fnGetShoppingList: (state) => state.shoppingList,
+=======
+>>>>>>> origin/main
     fnGetBoardList: (state) => state.boardList,
     fnGetPregnancyList: (state) => state.pregnancyList,
     cartItemCount: (state) => state.cartItem.length,
