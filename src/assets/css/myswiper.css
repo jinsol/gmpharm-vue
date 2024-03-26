@@ -135,6 +135,7 @@
   .swiper-container-vertical.swiper-container-css-mode > .swiper-wrapper {
     scroll-snap-type: y mandatory;
   }
+  /*첫번째 슬라이다 화살표 색상과 크기*/
   :root {
     --swiper-navigation-size: 44px;
     /*
@@ -171,6 +172,7 @@
     font-variant: initial;
     line-height: 1;
   }
+  /*슬라이더 왼쪽 화살표*/
   .swiper-button-prev,
   .swiper-container-rtl .swiper-button-next {
     left: 50px;
@@ -180,6 +182,7 @@
   .swiper-container-rtl .swiper-button-next:after {
     content: 'prev';
   }
+  /*슬라이더 오른쪽 화살표*/
   .swiper-button-next,
   .swiper-container-rtl .swiper-button-prev {
     right: 50px;
@@ -250,6 +253,7 @@
   .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
     transform: scale(0.33);
   }
+  /*도트버튼의 기본 스타일*/
   .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
@@ -270,6 +274,7 @@
   .swiper-pagination-clickable .swiper-pagination-bullet {
     cursor: pointer;
   }
+  /*활성버튼 스타일*/
   .swiper-pagination-bullet-active {
     opacity: 1;
     background: var(--swiper-pagination-color, var(--swiper-theme-color));

@@ -50,7 +50,4 @@ import '@/assets/css/myswiper.css'
 </script>
 
 <style lang="scss" scoped>
-    .event {
-        display: flex;
-    }
 </style>
