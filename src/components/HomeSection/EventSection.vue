@@ -52,6 +52,5 @@ import '@/assets/css/myswiper.css'
 <style lang="scss" scoped>
     .event {
         display: flex;
-        justify-content: space-around;
     }
 </style>

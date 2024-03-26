@@ -240,5 +240,4 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
         }
         
     }
-
 </style>

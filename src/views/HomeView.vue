@@ -33,9 +33,6 @@ export default {
     NewPrdSection,
     instargramSection,
     GoLinkSection,
-
-
-
   },
 };
 </script>

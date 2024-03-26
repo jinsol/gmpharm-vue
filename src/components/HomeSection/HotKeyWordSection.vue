@@ -23,6 +23,7 @@
     </div>
 </template>
 
+
 <script>
 import SectionTitle from "@/components/layout/SectionTitle.vue"
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
