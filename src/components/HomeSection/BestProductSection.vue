@@ -80,14 +80,19 @@
                                 <img src="/image/RDV_m1_p03.png" alt="">
                             </router-link>
                     </div>
->>>>>>> origin/main
+
                   </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+    </div>
+    </div>
+    </div>
 </template>
 
+</template>
 <script>
 import SectionTitle from "@/components/layout/SectionTitle.vue"
     export default {
@@ -127,19 +132,15 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
                     display: flex;
                     flex-wrap: wrap;
                     align-items: flex-end;
-                }
-                .infoBox_2{
-                    display: flex;
-                    justify-content: space-between;
-<<<<<<< HEAD
+
                     align-items: flex-end
                 }
             }
                     align-items: flex-end;
                     font-size: 18px;
                 }
-<<<<<<< HEAD
-=======
+
+
             justify-content: space-between;
            
             .product_1{
@@ -176,18 +177,14 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
             }
         }
             }
->>>>>>> origin/main
             .product{
                 border:1px solid #f7f7f7;
                 background: #f7f7f7;
                 border-radius: 15px;
                 margin: 10px;
-<<<<<<< HEAD
-            }
+          }
         }
-=======
-                padding: 20px;
-                border:10px solid #f7f7f7;
+
                 .box_2{
                     position: relative;
                 .num_2{
@@ -215,9 +212,8 @@ import SectionTitle from "@/components/layout/SectionTitle.vue"
                 }
             }
             }
-            }
-        }
+            
         
->>>>>>> origin/main
-    }
+        
+    
 </style>
