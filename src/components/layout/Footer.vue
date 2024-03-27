@@ -17,25 +17,12 @@
         </div>
         <div class="footerright">
             <p class="inquiry"><router-link to="/alliance">기업제휴문의</router-link></p>
-<<<<<<< HEAD
             <a href="https://pf.kakao.com/_AvxbqV" target="_blank" class="kakao"> 
                 <img :src="talkImageSrc" :alt="photo[0].alt" class="talk-image"> 
             </a>
             <a href="https://www.instagram.com/gmpharm_official/" target="_blank" class="instagram">
                  <img :src="instaImageSrc" :alt="photo[0].alt" class="insta-image"> 
             </a>
-=======
-            <div class="hoverBox">
-                <a href="https://pf.kakao.com/_AvxbqV" target="_blank" class="kakao"> 
-                    <img :src="talkImageSrc" :alt="photo[0].alt" class="talk-image"> 
-                </a>
-            </div>
-        <div class="hoverBox">
-                <a href="https://www.instagram.com/gmpharm_official/" target="_blank" class="instagram">
-                     <img :src="instaImageSrc" :alt="photo[0].alt" class="insta-image"> 
-                </a>
-        </div>
->>>>>>> origin/main
         </div>
     </div>
     <div class="footerbot row">
@@ -165,37 +152,14 @@
             color: #46b7B0;
             border: 1px solid #46b7B0;
     }
-<<<<<<< HEAD
             .kakao{
             margin-right: 15px;
-=======
-    .hoverBox{
-        width: 45px;
-        height: 46px;
-        margin-right: 15px;
-            .kakao{
-           
->>>>>>> origin/main
             .talk-image:hover {
             content: url("./image/footer_talk_h.png");
 }
             }
-<<<<<<< HEAD
-=======
-        }
-        .hoverBox{
-            width: 45px;
-        height: 46px;
->>>>>>> origin/main
             .instagram{
             .insta-image:hover {
-            content: url("./image/footer_instar_h.png");
-}
-            }
-        }
-<<<<<<< HEAD
-=======
-        }
 >>>>>>> origin/main
     }
     .footerbot{

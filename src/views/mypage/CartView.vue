@@ -7,13 +7,8 @@
 
 <script>
 import SectionTitle from "@/components/layout/SectionTitle.vue";
-<<<<<<< HEAD
 import CartList from "@/components/myPage/CartList.vue";
 
-=======
-
-import CartList from "@/components/myPage/CartList.vue";
->>>>>>> origin/main
 export default {
   name: "Cart",
   components: {
